@@ -25,7 +25,6 @@
         .why-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 30px; }
         .why-item { padding: 20px; border: 1px solid #eee; border-radius: 8px; background: #fff; }
         
-        /* Секция продуктов с отличительным фоном */
         .products-section { padding: 60px 0; background-color: #f1f1f1; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
         .product-list { display: grid; grid-template-columns: 1fr; margin-top: 30px; gap: 20px; }
         
@@ -45,7 +44,7 @@
         .details-drawer { max-height: 0; overflow: hidden; transition: 0.4s; color: #666; font-size: 13px; }
         .btn-more { background: none; border: none; color: #b71c1c; cursor: pointer; margin: 10px 0; font-weight: 600; }
         
-        footer { text-align: center; padding: 40px 0; background: #eee; }
+        footer { text-align: center; padding: 40px 0; background: #eee; color: #333; line-height: 1.6; }
         .social-links { margin-bottom: 20px; }
         .social-links a { font-size: 28px; color: #1a1a1a; margin: 0 15px; }
         
@@ -77,10 +76,23 @@
 
     <section id="why" class="why-section container">
         <h2>PROČ LAVIČKY OD KOPART?</h2>
+        <p style="color: #666; max-width: 700px; margin: 0 auto 30px;">Naše výrobky nejsou jen kus nábytku, ale investice do vaší zahrady. Spojujeme léty prověřené řemeslo s moderní odolností.</p>
         <div class="why-grid">
-            <div class="why-item"><i class="fas fa-tree"></i><h3>MASIVNÍ DŘEVO</h3><p>Kvalitní a vysušené.</p></div>
-            <div class="why-item"><i class="fas fa-shield-alt"></i><h3>OCHRANA</h3><p>Lakování a zinkování.</p></div>
-            <div class="why-item"><i class="fas fa-truck"></i><h3>DOPRAVA</h3><p>ZDARMA po celé ČR.</p></div>
+            <div class="why-item">
+                <i class="fas fa-tree" style="font-size: 24px; color: #b71c1c; margin-bottom: 15px;"></i>
+                <h3>PRÉMIOVÉ MATERIÁLY</h3>
+                <p>Používáme výhradně výběrový dubový masiv a certifikovanou ocel, které odolají i těm nejdrsnějším klimatickým podmínkám.</p>
+            </div>
+            <div class="why-item">
+                <i class="fas fa-shield-alt" style="font-size: 24px; color: #b71c1c; margin-bottom: 15px;"></i>
+                <h3>DOŽIVOTNÍ STABILITA</h3>
+                <p>Díky preciznímu žárovému zinkování a práškovému lakování naše konstrukce nekorodují a nevyžadují žádnou údržbu.</p>
+            </div>
+            <div class="why-item">
+                <i class="fas fa-truck" style="font-size: 24px; color: #b71c1c; margin-bottom: 15px;"></i>
+                <h3>BEZSTAROSTNÝ SERVIS</h3>
+                <p>Od návrhu přes výrobu až po dopravu přímo k vám na zahradu. Vše vyřešíme za vás, bez skrytých poplatků.</p>
+            </div>
         </div>
     </section>
 
@@ -113,7 +125,13 @@
                 <a href="https://www.instagram.com/kopart.sro?igsh=MWticGJydjN1cWNqeg=="><i class="fab fa-instagram"></i></a>
                 <a href="https://www.tiktok.com/@kopart.sro?_r=1&_t=ZN-97rUZeTahOg"><i class="fab fa-tiktok"></i></a>
             </div>
-            <p><strong>KOPART s.r.o.</strong> &copy; 2026</p>
+            <p>
+                <strong>KOPART s.r.o.</strong><br>
+                IČO: 21861293<br>
+                Adresa: Hudcova 532/78b, Brno<br>
+                Tel: +420 792 580 197 | Email: info@kopart.cz<br>
+                &copy; 2026 KOPART
+            </p>
         </div>
     </footer>
 
