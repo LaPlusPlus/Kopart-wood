@@ -2,7 +2,6 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <!-- Этот тег критически важен для мобильных -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOPART | Prémiový zahradní design</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -10,39 +9,52 @@
     <style>
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; margin: 0; color: #1a1a1a; background: #fafafa; overflow-x: hidden; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 15px; }
+        body { font-family: 'Inter', sans-serif; margin: 0; color: #1a1a1a; background: #fafafa; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         
         header { padding: 15px 0; background: #fff; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #eee; }
         .header-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo-wrap { display: flex; align-items: center; gap: 15px; }
+        .logo-wrap { display: flex; align-items: center; gap: 20px; }
         .logo { font-size: 20px; font-weight: 700; } .logo span { color: #b71c1c; }
-        .phone-header { font-size: 14px; font-weight: 600; white-space: nowrap; }
-        .nav-links a { text-decoration: none; color: #1a1a1a; margin-left: 15px; font-size: 14px; font-weight: 500; }
+        .phone-header { font-weight: 600; font-size: 14px; white-space: nowrap; }
+        .nav-links a { text-decoration: none; color: #1a1a1a; margin-left: 15px; font-weight: 500; font-size: 14px; }
         
         .hero { height: 300px; background: url('photo1.jpg') center/cover no-repeat; width: 100%; }
 
-        .why-section { padding: 50px 0; }
-        .why-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 30px; }
-        @media (min-width: 768px) { .why-grid { grid-template-columns: repeat(3, 1fr); } }
-        .why-item { padding: 20px; border: 1px solid #eee; border-radius: 8px; background: #fff; text-align: center; }
+        .why-section { padding: 40px 0; text-align: center; }
+        .why-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 30px; }
+        .why-item { padding: 20px; border: 1px solid #eee; border-radius: 8px; background: #fff; }
         
-        .product-list { display: flex; flex-direction: column; gap: 30px; margin-bottom: 50px; }
-        .product-item { background: #fff; display: flex; flex-direction: column; border: 1px solid #eee; border-radius: 8px; overflow: hidden; }
-        @media (min-width: 768px) { .product-item { flex-direction: row; } }
+        /* Секция продуктов с отличительным фоном */
+        .products-section { padding: 60px 0; background-color: #f1f1f1; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
+        .product-list { display: grid; grid-template-columns: 1fr; margin-top: 30px; gap: 20px; }
         
-        .product-img-box { position: relative; width: 100%; height: 250px; overflow: hidden; background: #eee; }
-        @media (min-width: 768px) { .product-img-box { width: 50%; height: 350px; } }
-        
+        .product-item { background: #fff; display: grid; grid-template-columns: 1fr; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
+        .product-img-box { position: relative; height: 250px; overflow: hidden; background: #eee; }
         .slider-track { display: flex; width: 200%; height: 100%; transition: 0.5s; }
         .slider-track img { width: 50%; height: 100%; object-fit: cover; }
-        .product-info { padding: 25px; width: 100%; }
+        .product-info { padding: 20px; }
+        .old-price { text-decoration: line-through; color: #888; font-size: 14px; margin-right: 10px; }
+        .new-price { font-size: 20px; font-weight: 700; color: #b71c1c; display: block; margin-top: 5px; }
         
-        .btn-cart { background: #1a1a1a; color: #fff; padding: 15px; border: none; cursor: pointer; border-radius: 4px; width: 100%; margin-top: 15px; font-weight: 600; }
+        .order-section { background: #fff; padding: 40px 0; }
+        .form-container { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        input, textarea { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 6px; }
+        .btn-cart { background: #b71c1c; color: #fff; padding: 15px; border: none; cursor: pointer; border-radius: 6px; font-weight: 700; width: 100%; margin-top: 10px; }
         
-        .order-section { padding: 50px 0; background: #fff; }
-        .form-container { width: 100%; max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 8px; }
-        input, textarea { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 4px; }
+        .details-drawer { max-height: 0; overflow: hidden; transition: 0.4s; color: #666; font-size: 13px; }
+        .btn-more { background: none; border: none; color: #b71c1c; cursor: pointer; margin: 10px 0; font-weight: 600; }
+        
+        footer { text-align: center; padding: 40px 0; background: #eee; }
+        .social-links { margin-bottom: 20px; }
+        .social-links a { font-size: 28px; color: #1a1a1a; margin: 0 15px; }
+        
+        @media (min-width: 768px) {
+            .why-grid { grid-template-columns: repeat(3, 1fr); }
+            .product-item { grid-template-columns: 1fr 1fr; }
+            .product-img-box { height: 350px; }
+            .hero { height: 500px; }
+        }
     </style>
 </head>
 <body>
@@ -51,50 +63,67 @@
         <div class="container header-flex">
             <div class="logo-wrap">
                 <div class="logo">KO<span>PART</span></div>
-                <div class="phone-header"><i class="fas fa-phone-alt" style="margin-right:5px; color:#b71c1c;"></i>+420 792 580 197</div>
+                <div class="phone-header"><i class="fas fa-phone-alt" style="color:#b71c1c; margin-right:5px;"></i>+420 792 580 197</div>
             </div>
             <nav class="nav-links">
                 <a href="#why">Proč my?</a>
                 <a href="#products">Produkty</a>
+                <a href="#contact">Kontakt</a>
             </nav>
         </div>
     </header>
 
     <section id="home" class="hero"></section>
 
-    <section id="why" class="container">
-        <h2 style="text-align:center;">PROČ KOPART?</h2>
+    <section id="why" class="why-section container">
+        <h2>PROČ LAVIČKY OD KOPART?</h2>
         <div class="why-grid">
-            <div class="why-item"><i class="fas fa-tree"></i><h3>MASIVNÍ DŘEVO</h3></div>
-            <div class="why-item"><i class="fas fa-shield-alt"></i><h3>OCHRANA</h3></div>
-            <div class="why-item"><i class="fas fa-truck"></i><h3>DOPRAVA ZDARMA</h3></div>
+            <div class="why-item"><i class="fas fa-tree"></i><h3>MASIVNÍ DŘEVO</h3><p>Kvalitní a vysušené.</p></div>
+            <div class="why-item"><i class="fas fa-shield-alt"></i><h3>OCHRANA</h3><p>Lakování a zinkování.</p></div>
+            <div class="why-item"><i class="fas fa-truck"></i><h3>DOPRAVA</h3><p>ZDARMA po celé ČR.</p></div>
         </div>
     </section>
 
-    <section id="products" class="container">
-        <h2 style="text-align:center;">Produkty</h2>
-        <div class="product-list" id="prod-list"></div>
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2 style="text-align:center; margin-top:0;">Naše produkty</h2>
+            <div class="product-list" id="prod-list"></div>
+        </div>
     </section>
 
     <section id="contact" class="order-section">
         <div class="container">
             <div class="form-container">
-                <h3 style="text-align:center;">Nezávazná poptávka</h3>
+                <h2 style="text-align:center; margin-top:0;">Nezávazná poptávka</h2>
                 <form id="tg-form">
                     <input type="text" id="name" placeholder="Vaše jméno" required>
+                    <input type="email" id="email" placeholder="Váš e-mail" required>
                     <input type="tel" id="phone" placeholder="Váš telefon" required>
-                    <textarea id="msg" placeholder="Zde se zobrazí váš výběr..." rows="3" required></textarea>
-                    <button type="submit" class="btn-cart">Odeslat</button>
+                    <textarea id="msg" placeholder="Zde se zobrazí váš výběr..." rows="4" required></textarea>
+                    <button type="submit" class="btn-cart">Odeslat objednávku</button>
                 </form>
             </div>
         </div>
     </section>
 
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/14isyAzjVZu/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/kopart.sro?igsh=MWticGJydjN1cWNqeg=="><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@kopart.sro?_r=1&_t=ZN-97rUZeTahOg"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p><strong>KOPART s.r.o.</strong> &copy; 2026</p>
+        </div>
+    </footer>
+
     <script>
         const products = [
-            { id: 's1', name: 'Lavečka Slim', price: 4290, old: 5100, img1: 'photo2.png', img2: 'photo15.jpg' },
-            { id: 's2', name: 'Lavečka Classic', price: 5890, old: 6900, img1: 'photo21.jpg', img2: 'photo22.jpg' },
-            { id: 's3', name: 'Půlkruhová lavice', price: 41690, old: 49000, img1: 'photo3.webp', img2: 'photo3.webp' }
+            { id: 's1', name: 'Lavečka Slim', price: 4290, old: 5100, img1: 'photo2.png', img2: 'photo15.jpg', desc: 'Elegantní a minimalistická lavička.', specs: ['Materiál: ocel, dubové dřevo', 'Barva: antracit, dub', 'Hmotnost: 90 – 110 kg', 'Nosnost na místo: 150 kg', 'Rozměry: 1200x250x400 mm'] },
+            { id: 's2', name: 'Lavečka Classic', price: 5890, old: 6900, img1: 'photo21.jpg', img2: 'photo22.jpg', desc: 'Ověřený design pro každou zahradu.', specs: ['Materiál: ocel, dubové dřevo', 'Barva: antracit, dub', 'Hmotnost: 90 – 110 kg', 'Nosnost na místo: 150 kg', 'Rozměry: 1200x250x400 mm'] },
+            { id: 's3', name: 'Půlkruhová lavice', price: 41690, old: 49000, img1: 'photo3.webp', img2: 'photo3.webp', desc: 'Dominanta zahrady pro kruhové posezení.', specs: ['Průměr: 320 cm', 'Dubový masiv síla: 3,6 cm', 'Výška sezení: 44 cm', 'Povrch: komaxit'] },
+            { id: 's4', name: 'Stojan na síť', price: 2190, old: 2600, img1: 'photo4.webp', img2: 'photo5.webp', desc: 'Praktický dřevěný stojan.', specs: ['Nosnost: 150 kg', 'Rychlá montáž', 'Vysoká stabilita'] },
+            { id: 's5', name: 'Designer lavice', price: 31390, old: 36900, img1: 'photo6.webp', img2: 'photo7.webp', desc: 'Designová lavice s masivní ocelovou podnoží.', specs: ['Síla dubu: 3,6 cm', 'Rozměr: 250x43x44 cm', 'Zakázková výroba'] }
         ];
 
         const list = document.getElementById('prod-list');
@@ -103,24 +132,37 @@
                 <div class="product-item">
                     <div class="product-img-box">
                         <div class="slider-track" id="${p.id}"><img src="${p.img1}"><img src="${p.img2}"></div>
+                        <button style="position:absolute; top:50%; left:10px; border:none; background:rgba(255,255,255,0.7); padding:8px; cursor:pointer;" onclick="move('${p.id}',0)"><i class="fas fa-chevron-left"></i></button>
+                        <button style="position:absolute; top:50%; right:10px; border:none; background:rgba(255,255,255,0.7); padding:8px; cursor:pointer;" onclick="move('${p.id}',1)"><i class="fas fa-chevron-right"></i></button>
                     </div>
                     <div class="product-info">
                         <h3>${p.name}</h3>
-                        <div style="margin: 10px 0;">
-                            <span style="text-decoration:line-through; color:#888;">${p.old} Kč</span>
-                            <span style="font-weight:700; color:#b71c1c; display:block; font-size:20px;">${p.price} Kč</span>
+                        <span class="old-price">${p.old.toLocaleString()} Kč</span>
+                        <span class="new-price">${p.price.toLocaleString()} Kč</span>
+                        <button class="btn-more" onclick="this.nextElementSibling.style.maxHeight = this.nextElementSibling.style.maxHeight ? null : '300px'">Více informací ▾</button>
+                        <div class="details-drawer">
+                            <p>${p.desc}</p>
+                            <ul>${p.specs.map(s => `<li>${s}</li>`).join('')}</ul>
                         </div>
-                        <button class="btn-cart" onclick="addToCart('${p.name}')">Přidat do objednávky</button>
+                        <button class="btn-cart" onclick="addToCart('${p.name}', ${p.price})" style="background:#1a1a1a;">Přidat do objednávky</button>
                     </div>
                 </div>
             `;
         });
 
+        function move(id, dir) { document.getElementById(id).style.transform = dir ? 'translateX(-50%)' : 'translateX(0)'; }
+        
         let cart = [];
-        function addToCart(name) {
-            cart.push(name);
-            document.getElementById('msg').value = "Mám zájem o: " + cart.join(", ");
-            alert(name + " přidáno!");
+        function addToCart(name, price) {
+            cart.push({name, price});
+            document.getElementById('msg').value = "Objednávka: " + cart.map(i => i.name).join(", ");
+            alert(name + " přidáno do objednávky!");
+        }
+        document.getElementById('tg-form').onsubmit = (e) => {
+            e.preventDefault();
+            alert("Objednávka byla odeslána.");
+            document.getElementById('tg-form').reset();
+            cart = [];
         }
     </script>
 </body>
