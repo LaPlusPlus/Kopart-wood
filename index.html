@@ -106,7 +106,7 @@
     <section id="contact" class="order-section">
         <div class="container">
             <div class="form-container">
-                <h2 style="text-align:center; margin-top:0;">Nezávazná poptávka</h2>
+                <h2 style="text-align:center; margin-top:0;">Objednávkový formulář</h2>
                 <form id="tg-form">
                     <input type="text" id="name" placeholder="Vaše jméno" required>
                     <input type="email" id="email" placeholder="Váš e-mail" required>
@@ -176,11 +176,30 @@
             document.getElementById('msg').value = "Objednávka: " + cart.map(i => i.name).join(", ");
             alert(name + " přidáno do objednávky!");
         }
-        document.getElementById('tg-form').onsubmit = (e) => {
+
+        document.getElementById('tg-form').onsubmit = async (e) => {
             e.preventDefault();
-            alert("Objednávka byla odeslána.");
-            document.getElementById('tg-form').reset();
-            cart = [];
+            
+            const token = "8945405094:AAHvUZ1NwB-Uz64GQXvJYBK2vSri5aPOxTg";
+            const chatId = "5538144916";
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const msg = document.getElementById('msg').value;
+
+            const text = `Nová objednávka:%0A👤 Jméno: ${name}%0A📧 Email: ${email}%0A📞 Tel: ${phone}%0A📝 Produkty: ${msg}`;
+
+            const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${text}`;
+
+            try {
+                await fetch(url);
+                alert("Objednávka byla úspěšně odeslána!");
+                document.getElementById('tg-form').reset();
+                cart = [];
+            } catch (error) {
+                alert("Chyba při odesílání.");
+            }
         }
     </script>
 </body>
